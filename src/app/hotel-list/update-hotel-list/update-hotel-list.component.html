@@ -1,13 +1,13 @@
 
 <div class="col-md-6 offset-md-3">
     <ng-container *ngIf="!addFunctionality">
-         <h3> Create Resturant </h3>
+         <h3> Update Resturant </h3>
     </ng-container>
     <ng-container *ngIf="addFunctionality">
-        <h3> Add Resturant </h3>
+        <h3> Add New Resturant </h3>
     </ng-container>
     <form [formGroup]="startForm" autocomplete="off"> 
-     <div>
+     <div class=" view-form">
         <div class="form-group">
             <label> Name</label>
             <span tabindex="-1">*</span>
@@ -16,10 +16,11 @@
             
         <div>
             <mat-error *ngIf="!startForm.get('hotelName')?.valid && (startForm.get('hotelName')?.touched || submitted) && startForm.get('hotelName')?.hasError('required')">Please Enter Resturant Name</mat-error>
+            <mat-error *ngIf="!startForm.get('hotelName')?.valid && (startForm.get('hotelName')?.touched || submitted) && startForm.get('hotelName')?.hasError('minlength')">Resturant Name must be at least 2 digits long</mat-error>
         </div>         
      </div>
         
-     <div>
+     <div class=" view-form">
         <div class="form-group">
             <label> Location</label>
             <span tabindex="-1">*</span>
@@ -27,31 +28,33 @@
         </div>
         <div>
             <mat-error *ngIf="!startForm.get('location')?.valid && (startForm.get('location')?.touched || submitted) && startForm.get('location')?.hasError('required')">Please Enter Resturant Location</mat-error>
+            <mat-error *ngIf="!startForm.get('location')?.valid && (startForm.get('location')?.touched || submitted) && startForm.get('location')?.hasError('minlength')">Location must be at least 2 digits long</mat-error>
         </div>
     </div>
 
-        <div class="form-group">
+        <div class="form-group view-form">
             <label> Description</label>
-            <input type="text" class ="form-control" placeholder = "Please Enter Hotel Description" formControlName="description" appInputType [inputType]="'alpha-numeric'" maxlength="251" minlength="2">
+            <input type="text" class ="form-control" placeholder = "Please Enter Hotel Description" formControlName="description" appInputType [inputType]="'alpha-numeric'" maxlength="251">
         </div>
 
-        <div class="form-group">
+        <div class="form-group view-form">
             <label> Cuisine Type</label>
-            <input type="text" class ="form-control" placeholder = "Please Enter Hotel Cuisine Type" formControlName="cuisineType" appInputType [inputType]="'alpha-space'" maxlength="31" minlength="2">
+            <input type="text" class ="form-control" placeholder = "Please Enter Hotel Cuisine Type" formControlName="cuisineType" appInputType [inputType]="'alpha-space'" maxlength="31">
         </div>
 
-    <div>
-        <div class="form-group">
+    <div class=" view-form">
+        <div class="form-group ">
             <label> Contact</label>
             <span tabindex="-1">*</span>
             <input type="text" class ="form-control" placeholder = "Please Enter Contact Without Coutnry Code" formControlName="contact" appInputType [inputType]="'only-number'" maxlength="10" minlength="10">
         </div>
         <div>
             <mat-error *ngIf="!startForm.get('contact')?.valid && (startForm.get('contact')?.touched || submitted) && startForm.get('contact')?.hasError('required')">Please Enter Contact</mat-error>
+            <mat-error *ngIf="!startForm.get('contact')?.valid && (startForm.get('contact')?.touched || submitted) && startForm.get('contact')?.hasError('minlength')">Contact Number must be 10 digits long</mat-error>
         </div>
     </div>
 
-    <div>
+    <div class=" view-form">
         <div class="form-group">
             <label> Rating</label>
             <input type="text" class ="form-control" placeholder = "Please Give Rating out of 10" formControlName="hotelRating" appInputType [inputType]="'only-number'" maxlength="2" (blur)="checkRating($event)">
@@ -61,13 +64,21 @@
         </div>
     </div>
 
-        <div class="form-group">
+        <div class="form-group view-form">
             <label> Seating Capacity</label>
             <input type="text" class ="form-control" placeholder = "Please Enter Seating Capacity" formControlName="seatingCapacity" appInputType [inputType]="'only-number'" maxlength="3">
         </div>
 
-        <button (click)="onBack()" class = "btn btn-outline-danger" type ="submit">Cancel</button>
-        <button *ngIf="!addFunctionality" (click)="onSubmit()" class = "btn btn-outline-success" type ="submit">Submit</button>
-        <button *ngIf="addFunctionality" (click)="onAdd()" class = "btn btn-outline-success" type ="submit">Add</button>
+    <div class="row">
+        <div class="col-md-6">
+             <button (click)="onBack()" class = "btn btn-outline-danger btn-cls" type ="submit">Cancel</button>
+        </div>
+        <div class="col-md-6 text-md-end" *ngIf="!addFunctionality">
+             <button  (click)="onSubmit()" class = "btn btn-outline-success btn-cls" type ="submit">Submit</button>
+        </div>
+        <div class="col-md-6 text-md-end" *ngIf="addFunctionality" >
+             <button (click)="onAdd()" class = "btn btn-outline-success btn-cls" type ="submit">Add</button>
+        </div>
+    </div>
     </form>
 </div> 

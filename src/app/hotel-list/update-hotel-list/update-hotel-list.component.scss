@@ -3,3 +3,15 @@
     color: red;
     font-size: small;
 }
+
+.view-form{
+    margin-bottom: 7px;
+}
+
+::ng-deep .mat-typography h3{
+    font-size: 28px !important;
+}
+
+.btn-cls{
+    margin-top: 15px;
+}

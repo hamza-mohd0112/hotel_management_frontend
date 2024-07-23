@@ -35,7 +35,7 @@ export class InputTypeDirective {
               regex = /^[a-zA-Z ]*$/;
               break;
           case 'alpha-numeric':
-                regex = /^[A-Za-z0-9\s]*$/
+                regex = /^[A-Za-z0-9\s ,]*$/
                 break;
           case 'only-number':
                 regex = /^[1-9][0-9]*$/;

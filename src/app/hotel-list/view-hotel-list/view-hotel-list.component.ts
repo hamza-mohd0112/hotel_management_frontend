@@ -24,7 +24,14 @@ export class ViewHotelListComponent implements OnInit{
   }
 
   private getlList(){
-   this.hotelList = this.hotelService.getHotelList();
+
+   this.hotelList = this.hotelService.getHotelListFromSession();
+   if(this.hotelList == undefined || this.hotelList == null){
+    this.hotelList = this.hotelService.getHotelList();
+    sessionStorage.setItem('HotelList', JSON.stringify(this.hotelList));
+   }
+   
+  //  if()
   }
 
   employeeDetails(id: number){
@@ -54,6 +61,10 @@ export class ViewHotelListComponent implements OnInit{
         const index = this.hotelList.findIndex( (val: any) => val.hotelID == id)
         if(index != -1){
           const removedElement = this.hotelList.splice(index, 1);
+          sessionStorage.setItem('HotelList', JSON.stringify(this.hotelList));
+          if(this.hotelList.length == 0){
+          sessionStorage.setItem('isAllDeleted', 'Yes');
+          }
           dialogRef.close();
         }
         else if(result.data == 'N'){

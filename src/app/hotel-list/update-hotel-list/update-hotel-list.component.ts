@@ -30,7 +30,7 @@ export class UpdateHotelListComponent {
     this.activatedRouteService.data.subscribe( data => {
       this.addFunctionality = data['addFunctionality']; 
     });
-    this.hotelList = this.hotelService.getHotelList();
+    this.hotelList = this.hotelService.getHotelListFromSession();
     if(!this.addFunctionality){
       this.fetchHotelData();
     }
@@ -87,7 +87,7 @@ export class UpdateHotelListComponent {
    this.routeToHomePage();
   }
   else{
-    alert('There must be something wrong');
+   console.log('Error')
   }
   }
 
@@ -102,6 +102,7 @@ export class UpdateHotelListComponent {
 
   onAdd(){
     this.submitted = true;
+    if(this.startForm.valid){
     const id = Math.floor(100000 + Math.random() * 900000);
     const payload = {
       "hotelID": id,
@@ -116,6 +117,10 @@ export class UpdateHotelListComponent {
 
     this.hotelList.push(payload);
     this.routeToHomePage();
+  }
+  else{
+    console.log('error')
+  }
   }
 
 }

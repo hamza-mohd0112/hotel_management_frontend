@@ -15,24 +15,24 @@ export class HotelServiceService {
 
   // Add Observale Return Type when API is in Working Condition.
   getHotelList() {
-    // if(sessionStorage?.getItem('HotelList') != null && sessionStorage){
-    //   const updatedData = sessionStorage.getItem('HotelList');
-    //   const returnData = JSON.parse(updatedData || '')
-    //   return returnData;
-    // }
-    // else{
     const mockData = require('../../resources/mocks/viewHotelList.json');
-    // const sessionData = JSON.stringify(mockData)
-    // sessionStorage.setItem('HotelList', sessionData);
     return mockData;
-    // }
-    
 
     //  Enable this return Code When Data Actually Comes From API side
     // return this.httpClient.get<any>(environment.apiURL + '/EndPoint Of Get API')
     //           .pipe(map(response => {
     //               return response;
     // }));
+  }
+
+  getHotelListFromSession(){
+    if(sessionStorage && sessionStorage?.length == 0 && (sessionStorage.getItem('isAllDeleted')) == 'Yes'){
+      return [];
+    }
+    if(sessionStorage && sessionStorage?.length != 0){
+    const hotelList = JSON.parse(sessionStorage?.getItem('HotelList') || '');
+    return hotelList;
+    }
   }
 
   setHotelID(event: any){
@@ -42,7 +42,7 @@ export class HotelServiceService {
   getHotelData(){
 
     const hotelKey = sessionStorage.getItem('hotelKey');
-    const mockData = this.getHotelList();
+    const mockData = this.getHotelListFromSession();
     const respectiveHoteldata = mockData.filter( (val: any) => {
       if(val.hotelID == hotelKey) return val;
     })

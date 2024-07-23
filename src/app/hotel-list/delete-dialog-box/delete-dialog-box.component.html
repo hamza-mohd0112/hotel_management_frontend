@@ -1,12 +1,15 @@
 <div class="delete-modal">
     <div>
-    <!-- <img src="../../../assets/Images/alert-Sign.jpg" alt="alert-triangle"/> -->
-<h4>Delete Hotel</h4>
- <p> Are you sure you want to delete this document? </p> 
- <p> You will be required to upload another document to complete application.</p>
-</div>
-<div style="display: flex;">
- <button class="btn btn-outline-secondary" (click)="onClose('N')">Cancel</button>
- <button class="btn btn-outline-danger" (click)="onClose('Y')">Delete</button>
-</div>
+        <h3>Delete Resturant</h3>
+        <p> Are you sure you want to delete this Resturant? </p> 
+        <p> This action cannot be undone.</p>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+             <button class="btn btn-outline-secondary" (click)="onClose('N')">Cancel</button>
+        </div>
+        <div class="col-md-6 text-md-end">
+           <button class="btn btn-outline-danger" (click)="onClose('Y')">Delete</button>
+        </div>
+    </div>
 </div>
