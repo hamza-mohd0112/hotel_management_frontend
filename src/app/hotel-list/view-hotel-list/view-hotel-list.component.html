@@ -1,0 +1,27 @@
+
+<div class="container">
+    <h2> Hotel List</h2>
+    <button type="button" class="btn btn-outline-secondary" (click)="addHotel()">Add Hotel</button>
+    <table class = "table table-striped">
+        <thead>
+            <tr>
+                <th> Hotel Name</th>
+                <th> Location</th>
+                <th> Description</th>
+                <th> Actions </th>
+            </tr>
+        </thead>
+        <tbody>
+           <tr *ngFor="let hotel of hotelList">
+            <td> {{hotel.hotelName}} </td>
+            <td> {{hotel.location}} </td>
+            <td> {{hotel.description}} </td>
+            <td>
+                <button (click) = "updateHotelList(hotel.hotelID)" class = "btn btn-outline-primary"> Update</button>
+                <button (click) = "deleteHotel(hotel.hotelID)" class = "btn btn-outline-danger" style="margin-left: 10px"> Delete</button>
+                <button (click) = "viewHotelDetails(hotel.hotelID)" class = "btn btn-outline-info" style="margin-left: 10px"> View</button>
+            </td>
+           </tr>
+        </tbody>
+    </table>
+</div>

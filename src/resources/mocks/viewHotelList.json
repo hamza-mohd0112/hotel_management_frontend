@@ -1,0 +1,42 @@
+[
+    {
+      "hotelID": 123456,
+      "hotelName": "ABC",
+      "description": "Cash (Checking, Savings)",
+      "location": "Noida, Uttar Pradesh",
+      "cuisineType": "North Indian",
+      "contact": "6388219087",
+      "hotelRating": "3",
+      "seatingCapacity": "60"
+    },
+    {
+        "hotelID": 109876,
+        "hotelName": "ABC",
+        "description": "Cash (Checking, Savings)",
+        "location": "Noida, Uttar Pradesh",
+        "cuisineType": "North Indian",
+        "contact": "6388219087",
+        "hotelRating": "3",
+        "seatingCapacity": "60"
+      },
+      {
+        "hotelID": 103376,
+        "hotelName": "ABC",
+        "description": "Cash (Checking, Savings)",
+        "location": "Noida, Uttar Pradesh",
+        "cuisineType": "North Indian",
+        "contact": "6388219087",
+        "hotelRating": "3",
+        "seatingCapacity": "60"
+      },
+      {
+        "hotelID": 903576,
+        "hotelName": "ABC",
+        "description": "Cash (Checking, Savings)",
+        "location": "Noida, Uttar Pradesh",
+        "cuisineType": "North Indian",
+        "contact": "6388219087",
+        "hotelRating": "3",
+        "seatingCapacity": "60"
+      }
+  ]
